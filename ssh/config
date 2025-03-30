@@ -1,0 +1,18 @@
+Host *
+  UseKeychain yes
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519
+
+Host vono
+  HostName 177.11.49.102
+  User hgoliveira
+
+Host meuVono
+  HostName 190.89.248.29
+  User hgoliveira
+  Port 2201
+
+Host helio
+  HostName 206.253.174.134
+  User hgoliveira
+  Port 2201

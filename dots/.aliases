@@ -1,0 +1,44 @@
+alias lock="pmset displaysleepnow"
+alias shutdown="osascript -e 'tell application \"System Events\" to shut down'"
+alias restart="osascript -e 'tell application \"System Events\" to restart'"
+alias trash="osascript -e 'tell application \"Finder\" to empty the trash without asking'"
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+alias reload="source ~/.config/fish/config.fish"
+alias cls="clear"
+
+alias storm="open -a PhpStorm"
+alias arc="open -a Arc"
+
+# Laravel
+alias cache='php artisan optimize:clear'
+alias tinker='php artisan tinker'
+alias m='php artisan migrate'
+alias mf='php artisan migrate:fresh'
+alias h='php artisan horizon'
+alias t='php artisan test'
+alias tp='php artisan test --parallel'
+alias tc='php artisan test --compact'
+alias pint='./vendor/bin/pint'
+alias stan='php -d xdebug.mode=off ./vendor/bin/phpstan analyse'
+
+# Git
+alias wip='git add .; git commit -m "wip"'
+alias gp='git push'
+alias gs='git status'
+alias gl='git log'
+alias amend='commit --amend --reuse-message=HEAD'
+alias nah='git reset --hard && git clean -df'
+alias puts='git reset --soft HEAD~1'
+
+# Composer
+alias cr='composer require'
+alias cu='composer update'
+alias ci='composer install'
+alias cdump='composer dump-autoload'
+
+# Paths
+alias l='ls -la'
+alias ls='eza --color=always --long --git --icons=always --hyperlink --no-filesize --no-time --no-user --no-permissions'
+alias lg="ls -G"
+alias cd='z'
+alias rr="rm -rf"

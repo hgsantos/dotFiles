@@ -1,0 +1,19 @@
+[user]
+	name = Hélio G. de Oliveira
+	email = hgsantos.jr@gmail.com
+
+[github]
+  user = hgsantos
+
+[init]
+    defaultBranch = main
+
+[push]
+	default = current
+	autoSetupRemote = true
+
+[pull]
+	rebase = false
+
+[commit]
+	gpgsign = false

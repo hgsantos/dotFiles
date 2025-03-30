@@ -1,0 +1,33 @@
+set RED '\033[0;31m'
+set GREEN '\033[0;32m'
+set NC '\033[0m'
+
+function commit
+    set commitMessage "$argv"
+
+    git add .
+
+    if test -z "$commitMessage"
+        aicommits
+        return
+    end
+
+    eval "git commit -a -m '$commitMessage'"
+end
+
+function mk
+    mkdir -p "$argv"
+    cd "$argv"
+end
+
+function a
+    php artisan "$argv"
+end
+
+function nb
+    git checkout -b $argv[1]
+end
+
+function tb
+    git checkout $argv[1]
+end

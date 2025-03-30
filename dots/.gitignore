@@ -1,0 +1,10 @@
+._*
+.DS_Store
+.idea
+.vscode
+.DB_Store
+node_modules
+npm-debug.log
+vendor
+
+!.gitkeep

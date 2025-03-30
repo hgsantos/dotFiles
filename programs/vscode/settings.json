@@ -1,0 +1,71 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.sideBar.location": "right",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.productIconTheme": "fluent-icons",
+    "workbench.colorTheme": "IBM Carbon Color Theme",
+    "workbench.editor.showTabs": "none",
+    "workbench.layoutControl.enabled": false,
+    // ========================================================================
+    "window.customTitleBarVisibility": "never",
+    "window.titleBarStyle": "native",
+    // ========================================================================
+    "security.workspace.trust.enabled": false,
+    // ========================================================================
+    "extensions.autoUpdate": "onlyEnabledExtensions",
+    // ========================================================================
+    "explorer.compactFolders": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    // ========================================================================
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.inlineSuggest.showToolbar": "always",
+    "editor.accessibilitySupport": "off",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.letterSpacing": 1.3,
+    "editor.fontSize": 13,
+    "editor.lineHeight": 2.4,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.minimap.enabled": false,
+    "editor.stickyScroll.enabled": false,
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.codeActionsOnSave": {
+        "source.organizeImports.biome": "explicit",
+        "source.fixAll.eslint": "always",
+        "quickfix.biome": "explicit"
+    },
+    // ========================================================================
+    "terminal.integrated.fontFamily": "Fira Code",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.lineHeight": 1.5,
+    "terminal.integrated.showExitAlert": false,
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    // ========================================================================
+    "files.exclude": {
+        "**/._*": true,
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.hg": true,
+        "**/.svn": true,
+        "**/CVS": true
+    },
+    // ========================================================================
+    "errorLens.delay": 1,
+    // ========================================================================
+    "breadcrumbs.enabled": false,
+    // ========================================================================
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "git.ignoreMissingGitWarning": true,
+    "[xml]": {
+        "editor.defaultFormatter": "redhat.vscode-xml"
+    },
+    "database-client.autoSync": true,
+    "remote.SSH.remotePlatform": {
+        "vonoServe": "linux"
+    },
+    "git.openRepositoryInParentFolders": "never"
+}
