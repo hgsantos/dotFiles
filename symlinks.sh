@@ -1,8 +1,11 @@
+echo "Criando symlinks..."
+
 ln -sf ~/.dotfiles/dots/.aliases ~/.aliases
 ln -sf ~/.dotfiles/dots/.functions ~/.functions
 ln -sf ~/.dotfiles/dots/.gitconfig ~/.gitconfig
 ln -sf ~/.dotfiles/dots/.gitignore ~/.gitignore_global
 mkdir -p ~/.ssh && ln -sf ~/.dotfiles/ssh/config ~/.ssh/config
+ln -s /Applications/Herd.app/Contents/Resources/herd /usr/local/bin/herd
 mkdir -p ~/.config && ln -sf ~/.dotfiles/dots/starship.toml ~/.config/starship.toml
 mkdir -p ~/.config/fish && ln -sf ~/.dotfiles/dots/config.fish ~/.config/fish/config.fish
 mkdir -p ~/.warp/themes && ln -sf ~/.dotfiles/programs/warp/carbom.yaml ~/.warp/themes/carbom.yaml

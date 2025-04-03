@@ -1,10 +1,12 @@
 #!/bin/bash
 
-echo "Installing Brew additional applications..."
+echo "Installing Brew..."
 
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(homebrew/bin/brew shellenv)"
+
+echo "Installing Brew packages..."
 
 brew update
 brew upgrade
@@ -12,10 +14,8 @@ brew upgrade
 # Install packages
 brew install php
 brew install nvm
-nvm install --lts
 brew install openssl
 brew install composer
-composer global require laravel/installer
 brew install git
 brew install mysql
 brew install imagemagick
@@ -23,11 +23,18 @@ pecl install imagick
 brew install redis
 brew install mailpit
 brew install yarn
+brew install herd
+brew install gh
 brew install starship
 brew install bat
 brew install zoxide
 brew install fzf
 brew install eza
+
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish
+fisher install jorgebucaran/nvm.fish
+nvm install lts
+composer global require laravel/installer
 
 # Start services
 brew services start php
@@ -36,14 +43,13 @@ brew services start redis
 brew services start mailpit
 
 # Cask
-echo "Installing Cask..."
+echo "Installing Brew Cask..."
 
 brew tap homebrew/cask
 brew tap laradumps/app
 
 sudo xcodebuild -license accept
 
-brew install --cask herd
 brew install --cask google-chrome
 brew install --cask slack
 brew install --cask spotify

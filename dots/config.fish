@@ -4,8 +4,9 @@ starship init fish | source
 set fish_greeting
 
 # Adicionar diretórios ao PATH
-set -Ux PATH $HOME/bin /usr/local/bin $PATH
-set -Ux PATH $PATH $HOME/.composer/vendor/bin
+set -Ua fish_user_paths $HOME/bin
+set -Ua fish_user_paths $HOME/usr/local/bin
+set -Ua fish_user_paths $HOME/.composer/vendor/bin
 
 # Inicializar fzf e zoxide no Fish
 fzf --fish | source
