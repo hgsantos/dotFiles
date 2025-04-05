@@ -1,28 +1,47 @@
 #!/bin/bash
 
-options=("Horizon" "Reverb" "Pail" "Vite dev"
-)
+# Prompt for service
+ask() {
+  read -r -p "Start $1? (y/N): " answer
+  case "$answer" in
+    [yY]|[yY][eE][sS]) return 0 ;;
+    *) return 1 ;;
+  esac
+}
 
-# Seleção com fzf (multi-select com espaço)
-selected=$(printf "%s\n" "${options[@]}" | fzf --multi --prompt="Selecionar serviços: " --header="Use espaço para marcar, Enter para confirmar")
+# Run command in a new Terminal.app tab
+run_in_new_tab() {
+  name="$1"
+  cmd="$2"
+  full_cmd="cd $PWD; clear; echo '▶️ Running $name...'; $cmd; exec $SHELL"
 
-if [[ -z "$selected" ]]; then
-  echo "❌ Nenhum serviço selecionado."
-  exit 1
+  osascript <<EOF
+tell application "Terminal"
+  activate
+  tell application "System Events" to tell process "Terminal" to keystroke "t" using {command down}
+  delay 0.3
+  do script "$full_cmd" in front window
+end tell
+EOF
+}
+
+echo "⚙️  Laravel Dev Setup"
+echo "----------------------"
+
+if ask "Horizon"; then
+  run_in_new_tab "Horizon" "php artisan horizon"
 fi
 
-echo "🚀 Iniciando os serviços selecionados..."
+if ask "Reverb"; then
+  run_in_new_tab "Reverb" "php artisan reverb:start"
+fi
 
-# Rodar cada comando em uma nova janela do terminal
-for service in $selected; do
-  case $service in
-    "Horizon")
-      osascript -e 'tell application "Terminal" to do script "cd '$PWD' && php artisan horizon"' ;;
-    "Reverb")
-      osascript -e 'tell application "Terminal" to do script "cd '$PWD' && php artisan reverb:start"' ;;
-    "Pail")
-      osascript -e 'tell application "Terminal" to do script "cd '$PWD' && php artisan pail"' ;;
-    "Vite dev")
-      osascript -e 'tell application "Terminal" to do script "cd '$PWD' && yarn dev"' ;;
-  esac
-done
+if ask "Pail"; then
+  run_in_new_tab "Pail" "php artisan pail"
+fi
+
+if ask "Yarn Dev"; then
+  run_in_new_tab "Yarn Dev" "yarn dev"
+fi
+
+echo "✅ All selected services started in Terminal.app tabs."
