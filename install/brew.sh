@@ -32,6 +32,8 @@ brew install zoxide
 brew install fzf
 brew install eza
 
+pecl install -n redis
+
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish
 fisher install jorgebucaran/nvm.fish
 nvm install lts
