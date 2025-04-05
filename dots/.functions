@@ -28,6 +28,6 @@ function nb
     git checkout -b $argv[1]
 end
 
-function tb
+function cb
     git checkout $argv[1]
 end

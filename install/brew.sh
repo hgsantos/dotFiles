@@ -23,6 +23,7 @@ pecl install imagick
 brew install redis
 brew install mailpit
 brew install yarn
+brew install node
 brew install herd
 brew install gh
 brew install starship

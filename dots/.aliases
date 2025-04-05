@@ -14,12 +14,17 @@ alias cache='php artisan optimize:clear'
 alias tinker='php artisan tinker'
 alias m='php artisan migrate'
 alias mf='php artisan migrate:fresh'
-alias h='php artisan horizon'
+alias horizon='php artisan horizon'
 alias t='php artisan test'
 alias tp='php artisan test --parallel'
 alias tc='php artisan test --compact'
 alias pint='./vendor/bin/pint'
 alias stan='php -d xdebug.mode=off ./vendor/bin/phpstan analyse'
+alias rector='php -d xdebug.mode=off ./vendor/bin/rector process'
+alias reverb='php artisan reverb:start'
+alias play='php artisan paiload:run'
+alias pail='php artisan pail'
+alias dev="~/.dotfiles/dev.sh"
 
 # Git
 alias wip='git add .; git commit -m "wip"'
