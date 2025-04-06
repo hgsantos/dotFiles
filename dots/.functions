@@ -31,3 +31,13 @@ end
 function cb
     git checkout $argv[1]
 end
+
+function dev
+    set colors "#c4b5fd,#93c5fd,#fb7185,#fdba74"
+    npx concurrently -c $colors \
+        "php artisan reverb:start" \
+        "php artisan horizon" \
+        "php artisan pail --timeout=0" \
+        "yarn dev" \
+        --names reverb,horizon,logs,vite
+end

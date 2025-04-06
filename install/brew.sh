@@ -24,7 +24,6 @@ brew install redis
 brew install mailpit
 brew install yarn
 brew install node
-brew install herd
 brew install gh
 brew install starship
 brew install bat
@@ -53,6 +52,7 @@ brew tap laradumps/app
 
 sudo xcodebuild -license accept
 
+brew install --cask herd
 brew install --cask google-chrome
 brew install --cask slack
 brew install --cask spotify
