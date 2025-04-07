@@ -4,7 +4,6 @@ echo "Installing Brew..."
 
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-eval "$(homebrew/bin/brew shellenv)"
 
 echo "Installing Brew packages..."
 
@@ -18,8 +17,8 @@ brew install openssl
 brew install composer
 brew install git
 brew install mysql
+brew install pkg-config
 brew install imagemagick
-pecl install imagick
 brew install redis
 brew install mailpit
 brew install yarn
@@ -31,28 +30,34 @@ brew install zoxide
 brew install fzf
 brew install eza
 
-pecl install -n redis
-
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish
-fisher install jorgebucaran/nvm.fish
-nvm install lts
-composer global require laravel/installer
-
 # Start services
 brew services start php
 brew services start mysql
 brew services start redis
 brew services start mailpit
 
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/nvm.fish
+fisher install jorgebucaran/nvm.fish
+nvm install lts
+
+pecl install redis
+pecl install imagick
+
+composer global require laravel/installer
+
+composer global require laravel/valet
+valet install
+valet trust
+
 # Cask
 echo "Installing Brew Cask..."
 
+brew tap nicoverbruggen/homebrew-cask
 brew tap homebrew/cask
 brew tap laradumps/app
 
 sudo xcodebuild -license accept
 
-brew install --cask herd
 brew install --cask google-chrome
 brew install --cask slack
 brew install --cask spotify
@@ -73,6 +78,9 @@ brew install --cask fanny
 brew install --cask laradumps/app/laradumps
 brew install --cask sequel-ace
 brew install --cask termius
+brew install --cask phpmon
+
+mkdir -p ~/codes/.valet && cd ~/codes/.valet && valet park
 
 # Remove outdated versions from the cellar.
 brew cleanup

@@ -41,3 +41,48 @@ function dev
         "yarn dev" \
         --names reverb,horizon,logs,vite
 end
+
+function vl
+    set secure 0
+    set project ""
+    set directory (pwd)
+
+    for arg in $argv
+        switch $arg
+            case "-s"
+                set secure 1
+            case "*"
+                set project $arg
+        end
+    end
+
+    if test -z "$project"
+        set project (basename $PWD)
+    end
+
+    set link_path ~/codes/.valet/$project
+
+    if test -L $link_path
+        echo "⚠️  Link '$project' já existe em .valet"
+        read -l -P "🔁 Deseja sobrescrever? (s/n): " confirm
+        if test "$confirm" != "s"
+            echo "❌ Cancelado."
+            return 1
+        end
+        rm $link_path
+    end
+
+    echo "🔗 Criando link simbólico em .valet/$project"
+    ln -s $directory $link_path
+
+    if test $secure -eq 1
+        echo "🔒 Ativando SSL para $project..."
+        valet secure $project
+    else
+        valet link $project > /dev/null
+    end
+
+    set protocol (test $secure -eq 1; and echo "https"; or echo "http")
+    echo "🌐 Abrindo $protocol://$project.test"
+    open "$protocol://$project.test"
+end
