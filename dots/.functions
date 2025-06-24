@@ -86,3 +86,70 @@ function vl
     echo "🌐 Abrindo $protocol://$project.test"
     open "$protocol://$project.test"
 end
+
+function pr
+    set -l title ""
+    set -l body ""
+    set -l base (git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
+    set -l head (git branch --show-current)
+
+    for i in (seq (count $argv))
+        set arg $argv[$i]
+
+        switch $arg
+            case "-b"
+                set i (math $i + 1)
+                set body $argv[$i]
+            case "-ba"
+                set i (math $i + 1)
+                set base $argv[$i]
+            case "*"
+                if test -z "$title"
+                    set title $arg
+                end
+        end
+    end
+
+    if test -z "$title"
+        echo "❌ Título obrigatório. Use: pr \"Título da PR\" [-b \"Corpo\"] [-ba \"branch destino\"]"
+        return 1
+    end
+
+    set cmd "gh pr create --base $base --head $head --title \"$title\" --body \"$body\""
+
+    echo "🚀 Criando PR da branch '$head' para '$base'"
+    eval $cmd
+end
+
+function ct
+    if test (count $argv) -eq 0
+        echo "Uso: ct [Path/]Nome"
+        return 1
+    end
+
+    set rel_path (string replace -r '^/' '' $argv[1])
+    set first (string sub -s 1 -l 1 $rel_path | string upper)
+    set rest (string sub -s 2 $rel_path)
+    set rel_path $first$rest
+    set full_path "./tests/Feature/$rel_path"Test.php
+
+    set dir (dirname $full_path)
+    mkdir -p $dir
+
+    if not test -e $full_path
+        echo "🔥 Criando: $full_path"
+        set test_name (string replace -a '/' ' ' (basename $rel_path | string replace -r '\.php$' ''))
+        touch $full_path
+        echo "<?php
+
+use function Pest\\Laravel\\get;
+
+test('$test_name', function () {
+    expect(true)->toBeTrue();
+});" > $full_path
+
+        echo "✅  Teste criado com sucesso."
+    else
+        echo "❌  O arquivo já existe: $full_path"
+    end
+end

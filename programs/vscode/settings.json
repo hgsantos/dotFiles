@@ -1,48 +1,100 @@
 {
-    "workbench.startupEditor": "newUntitledFile",
-    "workbench.sideBar.location": "right",
+    "workbench.colorTheme": "Vesper",
+    "workbench.preferredDarkColorTheme": "Vesper",
+    "window.autoDetectColorScheme": true,
     "workbench.iconTheme": "material-icon-theme",
-    "workbench.productIconTheme": "fluent-icons",
-    "workbench.colorTheme": "IBM Carbon Color Theme",
-    "workbench.editor.showTabs": "none",
+    "workbench.tree.enableStickyScroll": false,
+    "workbench.tree.indent": 12,
+    "workbench.sideBar.location": "right",
+    "workbench.statusBar.visible": true,
+    "workbench.editor.editorActionsLocation": "titleBar",
     "workbench.layoutControl.enabled": false,
-    // ========================================================================
-    "window.customTitleBarVisibility": "never",
-    "window.titleBarStyle": "native",
-    // ========================================================================
-    "security.workspace.trust.enabled": false,
-    // ========================================================================
-    "extensions.autoUpdate": "onlyEnabledExtensions",
-    // ========================================================================
-    "explorer.compactFolders": false,
-    "explorer.confirmDelete": false,
-    "explorer.confirmDragAndDrop": false,
-    // ========================================================================
-    "editor.acceptSuggestionOnCommitCharacter": false,
-    "editor.inlineSuggest.showToolbar": "always",
-    "editor.accessibilitySupport": "off",
-    "editor.fontFamily": "Fira Code",
-    "editor.fontLigatures": true,
-    "editor.letterSpacing": 1.3,
-    "editor.fontSize": 13,
-    "editor.lineHeight": 2.4,
+    "workbench.tips.enabled": false,
+    "workbench.startupEditor": "none",
+    "workbench.editor.enablePreview": false,
+    "workbench.productIconTheme": "fluent-icons",
+    "workbench.editor.showTabs": "none",
+    // -------------------------------------------------------------------------
+    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.horizontal": "hidden",
     "editor.formatOnSave": true,
-    "editor.formatOnType": true,
+    "editor.smoothScrolling": true,
+    "editor.cursorBlinking": "phase",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.experimental.asyncTokenization": true,
+    "editor.experimental.asyncTokenizationLogging": false,
+    "editor.semanticHighlighting.enabled": false,
+    "editor.copyWithSyntaxHighlighting": false,
+    "editor.snippetSuggestions": "top",
+    "editor.detectIndentation": false,
+    "editor.showFoldingControls": "mouseover",
+    "editor.guides.indentation": false,
+    "editor.hover.enabled": false,
     "editor.minimap.enabled": false,
-    "editor.stickyScroll.enabled": false,
-    "editor.defaultFormatter": "biomejs.biome",
-    "editor.codeActionsOnSave": {
-        "source.organizeImports.biome": "explicit",
-        "source.fixAll.eslint": "always",
-        "quickfix.biome": "explicit"
-    },
-    // ========================================================================
-    "terminal.integrated.fontFamily": "Fira Code",
+    "editor.fontFamily": "'Dank Mono', 'Rec Mono Linear', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 2.0,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.inlineSuggest.showToolbar": "onHover",
+    "editor.fontLigatures": true,
+    "editor.letterSpacing": 1.1,
+    "editor.accessibilitySupport": "off",
+    // -------------------------------------------------------------------------
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "explorer.decorations.badges": false,
+    "explorer.compactFolders": false,
+    // -------------------------------------------------------------------------
+    "window.commandCenter": false,
+    "window.title": " ",
+    "window.openFoldersInNewWindow": "off",
+    "window.openFilesInNewWindow": "off",
+    "window.newWindowDimensions": "inherit",
+    // -------------------------------------------------------------------------
+    "terminal.integrated.gpuAcceleration": "on",
     "terminal.integrated.fontSize": 14,
-    "terminal.integrated.lineHeight": 1.5,
     "terminal.integrated.showExitAlert": false,
-    "terminal.integrated.defaultProfile.osx": "zsh",
-    // ========================================================================
+    "terminal.integrated.defaultProfile.osx": "fish",
+    // -------------------------------------------------------------------------
+    "sshfs.configs": [
+        {
+            "name": "admin",
+            "host": "190.89.248.29",
+            "root": "/var/www",
+            "username": "$USERNAME",
+            "port": 2201,
+            "label": "admvn.meuvono.com.br"
+        }
+    ],
+    // -------------------------------------------------------------------------
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/vendor/{[^l],?[^ai]}*": true,
+        "**/public/{[^i],?[^n]}*": true,
+        "**/dist": true,
+        "**/_ide_helper.php": true,
+        "**/composer.lock": true,
+        "**/package-lock.json": true,
+        "storage": true,
+        ".phpunit.result.cache": true,
+        "_ide_helper.php": true,
+        "_ide_helper_models.php": true,
+        ".php_cs.cache": true,
+        ".phpstorm.meta.php": true
+    },
+    "emmet.includeLanguages": {
+        "blade.php": "html",
+        "twig": "html"
+    },
+    "files.associations": {
+        ".php_cs.dist": "php",
+        ".php_cs": "php",
+        ".pre": "php",
+        "artisan": "php",
+        ".env*": "dotenv"
+    },
     "files.exclude": {
         "**/._*": true,
         "**/.DS_Store": true,
@@ -51,21 +103,21 @@
         "**/.svn": true,
         "**/CVS": true
     },
-    // ========================================================================
-    "errorLens.delay": 1,
-    // ========================================================================
+    // -------------------------------------------------------------------------
+    "github.copilot.nextEditSuggestions.enabled": false,
+    "security.workspace.trust.enabled": false,
+    "laravel-pint.enable": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
     "breadcrumbs.enabled": false,
-    // ========================================================================
+    "extensions.ignoreRecommendations": true,
+    "git.openRepositoryInParentFolders": "never",
+    "files.trimTrailingWhitespace": true,
+    "diffEditor.renderSideBySide": false,
+    "scm.diffDecorations": "none",
+    "git.enableSmartCommit": true,
     "git.autofetch": true,
     "git.confirmSync": false,
-    "git.enableSmartCommit": true,
-    "git.ignoreMissingGitWarning": true,
-    "[xml]": {
-        "editor.defaultFormatter": "redhat.vscode-xml"
-    },
-    "database-client.autoSync": true,
-    "remote.SSH.remotePlatform": {
-        "vonoServe": "linux"
-    },
-    "git.openRepositoryInParentFolders": "never"
+    "security.workspace.trust.untrustedFiles": "open",
+    "errorLens.delay": 1,
 }

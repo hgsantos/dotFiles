@@ -1,0 +1,35 @@
+{
+	"config": {
+		"fail-on-first-error": false,
+		"verbosity": "verbose"
+	},
+	"pre-commit": {
+		"enabled": true,
+		"actions": [
+			{
+				"action": "vendor/bin/pint --test",
+				"options": {
+					"ignoreErrors": false
+				}
+			},
+			{
+				"action": "vendor/bin/phpstan analyse",
+				"options": {
+					"ignoreErrors": false
+				}
+			},
+			{
+				"action": "php artisan test --parallel",
+				"options": {
+					"ignoreErrors": false
+				}
+			},
+			{
+				"action": "vendor/bin/rector process --dry-run",
+				"options": {
+					"ignoreErrors": false
+				}
+			}
+		]
+	}
+}
